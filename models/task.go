@@ -8,6 +8,11 @@ const (
     StatusCompleted  TaskStatus = "completed"
     StatusCanceled   TaskStatus = "canceled"
 )
+/*
+1. Menggunakan TaskStatus type-safe, jadi Go akan menolak nilai selain yang didefinisikan.
+2. Tidak perlu memeriksa string secara manual di handler atau database, karena type ini membatasi input secara compile-time.
+3. Pointer atau JSON marshal tidak memengaruhi validasi; yang penting nilainya selalu salah satu dari 4 ini.
+*/
 
 type Task struct {
     ID          *int64      `json:"id,omitempty"` 
