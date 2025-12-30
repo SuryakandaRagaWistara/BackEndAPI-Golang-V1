@@ -5,7 +5,6 @@ type User struct {
     Name      string    `json:"name"`
     Email     string    `json:"email"`
     Role      string    `json:"role"`
-    // Ini tetap ada. Ini bukan kolom di DB, 
     //  tempat untuk menyimpan hasil join dari tabel Task.
     Tasks     []Task    `json:"tasks,omitempty"` 
 }
