@@ -55,54 +55,66 @@ BASE_URL="http://localhost:8080"
 ```
 
 ================== TASK ==================
+
+1. GET /tasks
 ```
-echo "1. GET /tasks"
 curl -s -X GET "$BASE_URL/tasks" | jq
 echo -e "\n"
-
-echo "2. GET /tasks/{id} (contoh id=1)"
+```
+2. GET /tasks/{id} 
+```
 curl -s -X GET "$BASE_URL/tasks/1" | jq
 echo -e "\n"
-
-echo "3. GET /users/{id}/task (contoh id=1)"
+```
+3. GET /users/{id}/task 
+```
 curl -s -X GET "$BASE_URL/users/1/task" | jq
 echo -e "\n"
-
-echo "4. POST /users/{id}/task (contoh id=1)"
+```
+4. POST /users/{id}/task
+```
 curl -s -X POST "$BASE_URL/users/1/task" \
     -H "Content-Type: application/json" \
     -d '{"title":"Task Baru","description":"Deskripsi task","deadline":"2025-12-31"}' | jq
 echo -e "\n"
-
-echo "5. PATCH /tasks/{id} (contoh id=1)"
+```
+5. PATCH /tasks/{id}
+```
 curl -s -X PATCH "$BASE_URL/tasks/1" \
     -H "Content-Type: application/json" \
     -d '{"status":"completed"}' | jq
 echo -e "\n"
+```
 
-echo "6. DELETE /tasks/{id} (contoh id=1)"
+6. DELETE /tasks/{id}
+```
 curl -s -X DELETE "$BASE_URL/tasks/1" | jq
 echo -e "\n"
+```
 
-echo "================== USER =================="
+================== USER ==================
 
-echo "7. GET /users"
+7. GET /users
+```
 curl -s -X GET "$BASE_URL/users" | jq
 echo -e "\n"
-
-echo "8. POST /users"
+```
+8. POST /users
+```
 curl -s -X POST "$BASE_URL/users" \
     -H "Content-Type: application/json" \
     -d '{"name":"Budi","email":"budi@example.com"}' | jq
 echo -e "\n"
-
-echo "9. GET /users/{id} (contoh id=1)"
+```
+9. GET /users/{id} 
+```
 curl -s -X GET "$BASE_URL/users/1" | jq
 echo -e "\n"
-
-echo "10. DELETE /users/{id} (contoh id=1)"
+```
+10. DELETE /users/{id} 
+```
 curl -s -X DELETE "$BASE_URL/users/1" | jq
 echo -e "\n"
-
-echo "================== END =================="
 ```
+================== END ==================
+
