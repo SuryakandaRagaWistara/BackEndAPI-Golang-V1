@@ -24,7 +24,10 @@ type Task struct {
     Status      TaskStatus `json:"status"`
 }
 
-
-// Relasi dalam go di representasikan dalam 2 bentuk
-// Field skalar:untuk menyimpan nilai kunci misalnya int8
-// Field Relasional:untuk menyimpan seluruh data terkait (misalnya struck user)
+/*
+Catatan:
+- Relasi dalam Go direpresentasikan 2 bentuk:
+  1. Field skalar: menyimpan nilai kunci (contoh: UserID int64)
+  2. Field relasional: menyimpan seluruh data terkait (contoh: User *User)
+- Semua field pointer digunakan untuk optional dan mendukung omitempty saat JSON marshal
+*/
