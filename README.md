@@ -51,11 +51,11 @@ go run main.go
 ```
 ## 5. Contoh Request dan Respone API 
 ```
-
 BASE_URL="http://localhost:8080"
+```
 
-echo "================== TASK =================="
-
+================== TASK ==================
+```
 echo "1. GET /tasks"
 curl -s -X GET "$BASE_URL/tasks" | jq
 echo -e "\n"
