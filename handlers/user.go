@@ -40,7 +40,6 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 
-	// Error 400: JSON tidak valid
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		http.Error(w, "Invalid input", http.StatusBadRequest)
@@ -52,7 +51,6 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		Insert(user, false, "", "representation", "").
 		Execute()
 
-	// Error 500: database
 	if err != nil {
 		log.Println("DB ERROR:", err)
 		http.Error(w, "Database error", http.StatusInternalServerError)
@@ -88,7 +86,6 @@ func GetUserByID(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // 3. Query ke database
     var users []models.User
     data, _, err := database.Client.
         From("User").
@@ -102,19 +99,19 @@ func GetUserByID(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // 4. Unmarshal data
+    // 3. Unmarshal data
     if err := json.Unmarshal(data, &users); err != nil {
         http.Error(w, "Failed to parse user data", http.StatusInternalServerError)
         return
     }
 
-    // 5. Cek apakah user ditemukan
+    // 4. Cek apakah user ditemukan
     if len(users) == 0 {
         http.Error(w, "User not found", http.StatusNotFound)
         return
     }
 
-    // 6. Kirim response
+    // 5. Kirim response
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(users[0])
 }
@@ -129,10 +126,9 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // 3. Eksekusi DELETE
     resp, _, err := database.Client.
         From("User").
-        Delete("", ""). // default
+        Delete("", ""). 
         Eq("id", idStr).
         Execute()
 
@@ -142,7 +138,7 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    // 4. Cek apakah ada row yang dihapus
+    // 3. Cek apakah ada row yang dihapus
     var result []interface{}
     if err := json.Unmarshal(resp, &result); err != nil {
         http.Error(w, "Failed to parse delete response", http.StatusInternalServerError)
