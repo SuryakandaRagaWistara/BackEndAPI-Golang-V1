@@ -18,7 +18,7 @@ Project ini dibuat untuk:
 - Menerapkan error handling standar (400, 404, 500).
 - Menggunakan Go dan Supabase sebagai backend.
 
-##3. Struktur Project
+## 3. Struktur Project
 ```
 project/
 ├─ main.go
