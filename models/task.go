@@ -10,7 +10,7 @@ const (
 )
 
 type Task struct {
-    ID          *int64      `json:"id,omitempty"` // Wajib Pointer + omitempty	CreatedAt *string  `json:"created_at,omitempty"` //engunakan pointer nama
+    ID          *int64      `json:"id,omitempty"` // Wajib Pointer + omitempty	CreatedAt *string  `json:"created_at,omitempty"` //mengunakan pointer nama
     
     // Field Skalar (Foreign Key)
     UserID      int64   `json:"user_id"` 
