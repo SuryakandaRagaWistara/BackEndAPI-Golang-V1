@@ -40,7 +40,7 @@ project/
 
 ```
 git clone https://github.com/SuryakandaRagaWistara/BackEndAPI-Golang-V1.git
-cd project
+cd BackEndAPI-Golang-V1
 
 
 # Install dependencies
