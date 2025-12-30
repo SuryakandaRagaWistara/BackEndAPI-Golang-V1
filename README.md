@@ -18,7 +18,7 @@ Project ini dibuat untuk:
 - Menerapkan error handling standar (400, 404, 500).
 - Menggunakan Go dan Supabase sebagai backend.
 
-
+```
 3. Struktur Project
 project/
 ├─ main.go
@@ -33,7 +33,7 @@ project/
 │  └─ db.go
 ├─ go.mod
 └─ README.md
-
+```
 ## 4. Cara Install dan Menjalankan
 
 ### Clone Repo
@@ -47,4 +47,5 @@ cd project
 go mod tidy
 
 # Jalankan server
-go run main.go```
+go run main.go
+```
