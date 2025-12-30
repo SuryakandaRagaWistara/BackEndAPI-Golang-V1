@@ -50,7 +50,7 @@ go mod tidy
 go run main.go
 ```
 ## 5. Contoh Request dan Respone API 
-#!/bin/bash
+```
 
 BASE_URL="http://localhost:8080"
 
@@ -105,3 +105,4 @@ curl -s -X DELETE "$BASE_URL/users/1" | jq
 echo -e "\n"
 
 echo "================== END =================="
+```
